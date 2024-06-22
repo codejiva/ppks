@@ -1,0 +1,203 @@
+/* ini CSS khusus untuk home page */
+
+/* Hero */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Animasi untuk muncul ke atas (saya lupa istilahnya) */
+@keyframes slideInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hero {
+  background-image: url("../img/stis.jpg");
+  background-size: cover;
+  color: white;
+  padding: 170px 0;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  margin: 0 20px;
+  animation: slideInUp 1s ease forwards;
+}
+
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero .btn:hover {
+  background-color: maroon;
+}
+
+/* About */
+
+.about {
+    margin-top: 50px;
+    text-align: justify;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bkg: #f8f5f2;
+  --text: #232323;
+  --highlight: #5dca85;
+  --accent: #f45d48;
+}
+
+@supports (backdrop-filter: blur()) or (-webkit-backdrop-filter: blur()) {
+  h1 {
+    background-color: hsl(0, 0%, 100%, 0.3);
+  }
+}
+
+h2 {
+  font-size: clamp(1.6rem, 4vw + 1rem, 3rem);
+  line-height: 1.1;
+}
+
+#first {
+  text-align: center;
+}
+
+.container {
+  max-width: 1000px;
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+.grid-layout {
+  display: grid;
+  gap: 3rem;
+}
+
+.grid-text {
+  display: grid;
+  gap: 1rem;
+  max-width: 60ch;
+  flex: 1 1 40%;
+}
+
+.grid-text--sm {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.flex-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.flex-wrap-reverse {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap-reverse;
+}
+
+[data-pie] circle {
+  transform: rotate(-90deg);
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+[data-pie] {
+  max-width: 70vw;
+  max-height: 70vw;
+  flex: 1 1 40%;
+}
+
+@media (max-width: 600px) {
+  .grid-text,
+  [data-pie] {
+    flex: 1 1 100%;
+  }
+}
+
+[data-pie] text {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(20%);
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+[data-color="highlight"] text {
+  fill: var(--highlight);
+}
+
+[data-color="accent"] text {
+  fill: var(--accent);
+}
+
+[data-color="text"] text {
+  fill: var(--text);
+}
+
+[data-color="highlight"] {
+  stroke: var(--highlight);
+  color: var(--highlight);
+}
+
+[data-color="accent"] {
+  stroke: var(--accent);
+  color: var(--accent);
+}
+
+[data-color="text"] {
+  stroke: var(--text);
+  color: var(--text);
+}
+
+.jadi {
+  margin-bottom: 20px;
+}
