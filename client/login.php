@@ -15,17 +15,17 @@
 
     <div class="container" id="container">
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="login_process.php" method="POST">
                 <h1>Sign in</h1>
                 <div class="infield">
-                    <input type="email" placeholder="Email" name="email" />
+                    <input type="email" placeholder="Email" name="email" required />
                     <label></label>
                 </div>
                 <div class="infield">
-                    <input type="password" placeholder="Password" />
+                    <input type="password" placeholder="Password" name="password" required />
                     <label></label>
                 </div>
-                <button>Sign In</button>
+                <button type="submit">Sign In</button>
             </form>
         </div>
         <div class="overlay-container" id="overlayCon">

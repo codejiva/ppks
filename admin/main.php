@@ -1,5 +1,15 @@
 <?php
+session_start();
 include $_SERVER['DOCUMENT_ROOT'] . '/ppks/client/config.php';
+
+// Pastikan pengguna sudah login
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
+// Ambil peran pengguna dari sesi
+$role_id = $_SESSION['role_id'];
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +26,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/ppks/client/config.php';
 
     <title>Admin</title>
 </head>
- 
+
 <body>
 
     <!-- SIDEBAR -->
@@ -40,13 +50,25 @@ include $_SERVER['DOCUMENT_ROOT'] . '/ppks/client/config.php';
 
             switch ($page) {
                 case 'dashboard':
-                    include 'dashboard.php';
+                    if ($role_id == 1) {
+                        include 'dashboard.php';
+                    } else {
+                        echo 'Access denied';
+                    }
                     break;
                 case 'content':
-                    include 'content.php';
+                    if ($role_id == 1 || $role_id == 3) {
+                        include 'content.php';
+                    } else {
+                        echo 'Access denied';
+                    }
                     break;
                 case 'case':
-                    include 'case.php';
+                    if ($role_id == 1 || $role_id == 2) {
+                        include 'case.php';
+                    } else {
+                        echo 'Access denied';
+                    }
                     break;
                 default:
                     echo 'Gak ada njir';
