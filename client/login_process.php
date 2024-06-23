@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = md5($_POST['password']);
 
-    // Debug log: Print email and hashed password
+    // buat Debug log: print email sama password
     echo "Email: " . htmlspecialchars($email) . "<br>";
     echo "Hashed Password: " . htmlspecialchars($password) . "<br>";
 
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute(['email' => $email, 'password' => $password]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Debug log: Print fetched user data
+    // Debug log: ini buat print data fetch
     echo "User data: ";
     print_r($user);
 
@@ -25,9 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: /ppks/admin/main.php");
         exit();
     } else {
-        echo "Invalid email or password.";
+        echo "Invalid email or password. Siapa kamu?!";
     }
 } else {
-    echo "Invalid request method.";
+    echo "Invalid request method. Rusakkkkkk";
 }
 ?>

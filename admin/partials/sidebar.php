@@ -29,14 +29,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/ppks/client/config.php';
     </ul>
     <ul class="side-menu">
         <li>
-            <a href="#">
-                <i class='bx bxs-cog'></i>
-                <span class="text">Settings</span>
-            </a>
-        </li>
-        <li>
-            <a href="#" class="logout">
-                <i class='bx bxs-log-out-circle'></i>
+            <a href="<?php echo $base_url; ?>/client/login.php" class="logout">
+                <i class='bx bx-log-out'></i>
                 <span class="text">Logout</span>
             </a>
         </li>

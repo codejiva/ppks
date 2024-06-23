@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <div class="container" id="container">
         <div class="form-container sign-in-container">
             <form action="login_process.php" method="POST">

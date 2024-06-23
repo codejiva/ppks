@@ -2,19 +2,17 @@
 session_start();
 include $_SERVER['DOCUMENT_ROOT'] . '/ppks/client/config.php';
 
-// Pastikan pengguna sudah login
+// mastiin tiap role login baru bisa akses
 if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     exit();
 }
 
-// Ambil peran pengguna dari sesi
+// ini nyesuaiin rolenya
 $role_name = $_SESSION['role_name'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,23 +20,22 @@ $role_name = $_SESSION['role_name'];
     <link rel="stylesheet" href="dashboard.css">
     <title>Admin</title>
 </head>
-
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>
 <body>
-
     <!-- SIDEBAR -->
     <?php
     include 'partials/sidebar.php';
     ?>
-    <!-- SIDEBAR -->
-
     <!-- CONTENT -->
     <section id="content">
         <!-- NAVBAR -->
         <?php
         include 'partials/navbar.php';
         ?>
-        <!-- NAVBAR -->
-
         <!-- MAIN -->
         <main>
             <?php
@@ -71,11 +68,7 @@ $role_name = $_SESSION['role_name'];
             }
             ?>
         </main>
-        <!-- MAIN -->
     </section>
-    <!-- CONTENT -->
-
     <script src="<?php echo $base_url; ?>client/script.js"></script>
 </body>
-
 </html>

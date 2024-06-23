@@ -35,12 +35,6 @@ html {
   overflow-x: hidden;
 }
 
-body.dark {
-  --light: #0c0c1e;
-  --grey: #060714;
-  --dark: #fbfbfb;
-}
-
 body {
   background: var(--grey);
   overflow-x: hidden;
@@ -242,55 +236,13 @@ body {
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-#content nav .notification {
-  font-size: 20px;
-  position: relative;
-}
-#content nav .notification .num {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid var(--light);
-  background: var(--red);
-  color: var(--light);
-  font-weight: 700;
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 #content nav .profile img {
   width: 36px;
   height: 36px;
   object-fit: cover;
   border-radius: 50%;
 }
-#content nav .switch-mode {
-  display: block;
-  min-width: 50px;
-  height: 25px;
-  border-radius: 25px;
-  background: var(--grey);
-  cursor: pointer;
-  position: relative;
-}
-#content nav .switch-mode::before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  bottom: 2px;
-  width: calc(25px - 4px);
-  background: var(--blue);
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
-#content nav #switch-mode:checked + .switch-mode::before {
-  left: calc(100% - (25px - 4px) - 2px);
-}
+
 /* NAVBAR */
 
 /* MAIN */
@@ -493,6 +445,13 @@ body {
 }
 #content main .table-data .todo .todo-list li:last-child {
   margin-bottom: 0;
+}
+
+.bx bx-edit-alt{
+  background-color: var(--blue);
+}
+.delete {
+  background-color: var(--blue);
 }
 /* MAIN */
 /* CONTENT */
