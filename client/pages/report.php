@@ -37,15 +37,6 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div>
-                    <label for="prodi">Program Studi *</label>
-                    <select id="prodi" name="prodi" required>
-                        <option value="">Pilih...</option>
-                        <option value="ST">D-IV Statistika Terapan</option>
-                        <option value="KS">D-IV Komputasi Statistik</option>
-                        <option value="D3">D-III Statistika</option>
-                    </select>
-                </div>
-                <div>
                     <label for="file_identitas">Unggah File Identitas</label>
                     <input type="file" id="file_identitas" name="file_identitas">
                 </div>
@@ -122,7 +113,6 @@
             <fieldset class="keamanan">
                 <legend>KEAMANAN LAPORAN</legend>
                 <div>
-                    <label for="captcha">Saya adalah robot terkuat di dunia RAAHHHHHH</label>
                     <div id="captcha">
                         <!-- Ntar taro captcha di sini -->
                         <input type="checkbox" required> Saya bukan robot

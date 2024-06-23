@@ -1,7 +1,8 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . '/ppks/client/config.php';
 
-function excerpt($content, $length = 20) {
+function excerpt($content, $length = 20)
+{
     $words = explode(' ', $content);
     if (count($words) > $length) {
         return implode(' ', array_slice($words, 0, $length)) . '...';
@@ -9,6 +10,8 @@ function excerpt($content, $length = 20) {
         return $content;
     }
 }
+
+$stmt = $pdo->query("SELECT * FROM artikel ORDER BY tanggal DESC");
 ?>
 
 <!DOCTYPE html>
@@ -19,17 +22,21 @@ function excerpt($content, $length = 20) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artikel</title>
     <link rel="stylesheet" href="../assets/styles/home.css">
+    <link rel="stylesheet" href="../assets/styles/style.css">
+    <link rel="stylesheet" href="../assets/styles/report.css">
     <script src="../script/search.js" defer></script>
 </head>
 
 <body>
-    <div class="artikel-container">
-        <input type="text" id="search-input" placeholder="Cari artikel..." style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
-        <div id="results-container" class="articles-grid">
-            <?php
-            $stmt = $pdo->query("SELECT * FROM artikel LIMIT 12");
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div class='card'>
+    <div class="container" style="margin-top: 17vh;">
+        <div class="artikel-container">
+            <h2>ARTIKEL</h2>
+            <input type="text" id="search-input" placeholder="Cari artikel..." style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px;">
+            <div id="results-container" class="articles-grid">
+                <?php
+                $stmt = $pdo->query("SELECT * FROM artikel");
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<div class='card'>
                         <h3 class='card__title'>" . htmlspecialchars($row['judul']) . "</h3>
                         <p class='card__content'>" . htmlspecialchars(excerpt($row['artikel'])) . "</p>
                         <div class='card__date'>" . htmlspecialchars($row['tanggal']) . "</div>
@@ -44,8 +51,9 @@ function excerpt($content, $length = 20) {
                             </form>
                         </div>
                     </div>";
-            }
-            ?>
+                }
+                ?>
+            </div>
         </div>
     </div>
 </body>

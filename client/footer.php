@@ -1,21 +1,25 @@
 <!-- untuk ffooter -->
-<div class="footerContainer">
-        <div class="socialIcons">
-            <a href="https://www.instagram.com/codejiva/"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://twitter.com/codejiva"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://youtu.be/8_vTlI9tn6Y?si=KCgrMBiAtRUTLcjd"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://github.com/codejiva"><i class="fa-brands fa-github"></i></a>
+<?php
+include $_SERVER['DOCUMENT_ROOT'] . '/ppks/client/config.php';
+?>
+<div class="container" style="background-color:#26272b;">
+    <div class="row">
+        <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by
+                <a href="<?php echo $base_url; ?>/client/index.php?page=home">Satgas PPKS Politeknik Statistika STIS</a>.
+            </p>
+            <p>
+                Designed and Programmed by <a href="https://www.instagram.com/rambatipardja_">Rambati Lumbung Pardja</a>
+            </p>
         </div>
-        <div class="footerNav">
-            <ul><li><a href="../client/pages/home.php">Beranda</a></li>
-                <li><a href="../client/pages/report.php">Lapor</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="">Hubungi</a></li>
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+                <li><a class="dribbble" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa-brands fa-github"></i></a></li>
+                <li><a class="dribbble" href="#"><i class="fa-solid fa-envelope"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa-brands fa-linkedin"></i></a></li>
             </ul>
         </div>
-        
     </div>
-    <div class="footerBottom">
-        <p>Copyright &copy;2024; Designed and programmed by</p> 
-        <p class="bung"><span class="designer">Rambati Lumbung Pardja | Code Jiva | 222212833</span></p>
-    </div>
+</div>
