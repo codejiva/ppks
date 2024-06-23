@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "Email: " . htmlspecialchars($email) . "<br>";
     echo "Hashed Password: " . htmlspecialchars($password) . "<br>";
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
+    $stmt = $pdo->prepare("SELECT * FROM roles WHERE email = :email AND password = :password");
     $stmt->execute(['email' => $email, 'password' => $password]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($user) {
         $_SESSION['user_id'] = $user['id'];
-        $_SESSION['role'] = $user['role'];
+        $_SESSION['role_name'] = $user['role_name'];
 
         header("Location: /ppks/admin/main.php");
         exit();
@@ -30,3 +30,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     echo "Invalid request method.";
 }
+?>

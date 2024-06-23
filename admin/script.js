@@ -12,8 +12,6 @@ allSideMenu.forEach(item=> {
 });
 
 
-
-
 // TOGGLE SIDEBAR
 const menuBar = document.querySelector('#content nav .bx.bx-menu');
 const sidebar = document.getElementById('sidebar');

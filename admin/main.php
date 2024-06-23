@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Ambil peran pengguna dari sesi
-$role_id = $_SESSION['role_id'];
+$role_name = $_SESSION['role_name'];
 ?>
 
 <!DOCTYPE html>
@@ -18,12 +18,8 @@ $role_id = $_SESSION['role_id'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <!-- My CSS -->
     <link rel="stylesheet" href="dashboard.css">
-
     <title>Admin</title>
 </head>
 
@@ -50,21 +46,21 @@ $role_id = $_SESSION['role_id'];
 
             switch ($page) {
                 case 'dashboard':
-                    if ($role_id == 1) {
+                    if ($role_name == 'admin') {
                         include 'dashboard.php';
                     } else {
                         echo 'Access denied';
                     }
                     break;
                 case 'content':
-                    if ($role_id == 1 || $role_id == 3) {
+                    if ($role_name == 'satgas' || $role_name == 'admin') {
                         include 'content.php';
                     } else {
                         echo 'Access denied';
                     }
                     break;
                 case 'case':
-                    if ($role_id == 1 || $role_id == 2) {
+                    if ($role_name == 'writer' || $role_name == 'admin') {
                         include 'case.php';
                     } else {
                         echo 'Access denied';
