@@ -447,11 +447,11 @@ body {
   margin-bottom: 0;
 }
 
-.bx bx-edit-alt{
+.edit{
   background-color: var(--blue);
 }
 .delete {
-  background-color: var(--blue);
+  background-color: var(--red);
 }
 /* MAIN */
 /* CONTENT */

@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role_name'] = $user['role_name'];
+        $_SESSION['user_name'] = $user['nama'];
 
         header("Location: /ppks/admin/main.php");
         exit();

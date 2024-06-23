@@ -49,16 +49,16 @@ $role_name = $_SESSION['role_name'];
                         echo 'Access denied';
                     }
                     break;
-                case 'content':
+                case 'case':
                     if ($role_name == 'satgas' || $role_name == 'admin') {
-                        include 'content.php';
+                        include 'case.php';
                     } else {
                         echo 'Access denied';
                     }
                     break;
-                case 'case':
+                case 'content':
                     if ($role_name == 'writer' || $role_name == 'admin') {
-                        include 'case.php';
+                        include 'content.php';
                     } else {
                         echo 'Access denied';
                     }
