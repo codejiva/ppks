@@ -72,6 +72,6 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
             ?>
         </main>
     </section>
-    <script src="<?php echo $base_url; ?>/script.js"></script>
+    <script src="<?php echo $base_url; ?>/admin/script.js"></script>
 </body>
 </html>
