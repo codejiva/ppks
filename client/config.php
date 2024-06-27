@@ -6,9 +6,9 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/ppks';
 
 
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ppks";
+$username = "rfaridhm_admin";
+$password = "D7cj5X.PF[QH";
+$dbname = "rfaridhm_ppks";
 
 try {
     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
