@@ -2,7 +2,7 @@
 // config.php
 
 // Menentukan base URL
-$base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/ppks';
+$base_url = 'https://' . $_SERVER['HTTP_HOST'] . '/ppks';
 
 
 $servername = "localhost";
