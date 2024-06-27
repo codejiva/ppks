@@ -1,7 +1,19 @@
 <head>
     <link rel="stylesheet" href="../assets/styles/report.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
+
 <section id="report-form" class="report_section">
+    <div id="check-status" style="margin-top: 130px; text-align: center;">
+        <h2>Cek Status Laporan</h2>
+        <div>
+            <input style="height: 40px; width: 20%;" placeholder=" kode unik..." type="text" id="kode_unik" name="kode_unik" required>
+            <button type="button" onclick="checkStatus()" style="height:40px; width: 40px;">Cek</button>
+        </div>
+        <div id="status-result" style="margin-top: 50px;">
+            <!-- Hasil status laporan akan ditampilkan di sini -->
+        </div>
+    </div>
     <div class="container">
         <h2>FORM LAPORAN</h2>
         <form action="process_report.php" method="POST" enctype="multipart/form-data">
@@ -35,10 +47,6 @@
                 <div>
                     <label for="email">Email *</label>
                     <input type="email" id="email" name="email" required>
-                </div>
-                <div>
-                    <label for="file_identitas">Unggah File Identitas</label>
-                    <input type="file" id="file_identitas" name="file_identitas">
                 </div>
             </fieldset>
 
@@ -104,18 +112,13 @@
                     <label for="kronologi_peristiwa">Kronologi Peristiwa *</label>
                     <textarea id="kronologi_peristiwa" name="kronologi_peristiwa" required></textarea>
                 </div>
-                <div>
-                    <label for="file_bukti">Unggah File Bukti Tindakan Kekerasan Seksual</label>
-                    <input type="file" id="file_bukti" name="file_bukti">
-                </div>
             </fieldset>
 
             <fieldset class="keamanan">
                 <legend>KEAMANAN LAPORAN</legend>
                 <div>
                     <div id="captcha">
-                        <!-- Ntar taro captcha di sini -->
-                        <input type="checkbox" required> Saya bukan robot
+                        <div class="g-recaptcha" data-sitekey="6LfMvwIqAAAAALdOqH7MahGSlggxzDMWa1xL0sQj"></div>
                     </div>
                 </div>
             </fieldset>
@@ -124,11 +127,102 @@
                 <button type="submit">SUBMIT</button>
             </div>
         </form>
+
+        <div id="check-status" class="report_section" style="display: none;">
+            <div class="container">
+                <h2>CEK STATUS LAPORAN</h2>
+                <div>
+                    <label for="kode_unik">Masukkan Kode Unik:</label>
+                    <input type="text" id="kode_unik" name="kode_unik" required>
+                    <button type="button" onclick="checkStatus()">Cek Status</button>
+                </div>
+                <div id="status-result" style="margin-top: 20px;">
+                    <!-- Hasil status laporan akan ditampilkan di sini -->
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <script>
     function toggleMenu() {
         var menuLinks = document.querySelector('.menu-links');
         menuLinks.classList.toggle('active');
+    }
+
+    // Ambil elemen form
+    var form = document.getElementById('reportForm');
+
+    // Tambahkan event listener untuk event submit
+    form.addEventListener('submit', function(event) {
+        // Mencegah form untuk memuat ulang halaman
+        event.preventDefault();
+
+        // Mengumpulkan data form
+        var formData = new FormData(form);
+
+        // Kirim data form ke server menggunakan fetch
+        fetch('process_report.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                // Handle response from server if needed
+                console.log('Data berhasil dikirim:', data);
+                // Reset form jika diperlukan
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+
+    function checkStatus() {
+        var kodeUnik = document.getElementById('kode_unik').value;
+
+        // Kirim permintaan AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'process_check_status.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // Tangkap hasil dari server
+                var response = xhr.responseText;
+                // Tampilkan hasil status laporan
+                document.getElementById('status-result').innerHTML = response;
+            } else {
+                console.error('Request failed. Status: ' + xhr.status);
+            }
+        };
+        // Kirim data kode unik
+        xhr.send('kode_unik=' + kodeUnik);
+    }
+
+    function showStatus(data) {
+        // Menampilkan hasil status laporan
+        var statusResult = document.getElementById('status-result');
+        statusResult.innerHTML = `
+            <h1>Status Laporan</h1>
+            <div>
+                <h2>Informasi Laporan</h2>
+                <p>Nama Lengkap: ${data.nama_lengkap}</p>
+                <p>Tanggal Lapor: ${data.tanggal_peristiwa}</p>
+                <p>Status Pelapor: ${data.status_pelapor}</p>
+                <p>Kategori: ${data.kategori}</p>
+                <p>Kode Unik: ${data.kode_unik}</p>
+                <p>Gunakan kode unik untuk cek status laporan secara berkala.</p>
+            </div>
+            <a href="index.php?page=home" class="button">Kembali ke Halaman Utama</a>
+        `;
+
+        // Sembunyikan form laporan
+        document.getElementById('report-form').style.display = 'none';
+        // Tampilkan hasil status
+        document.getElementById('check-status').style.display = 'block';
     }
 </script>

@@ -34,7 +34,6 @@ $stmt = $pdo->query("SELECT * FROM artikel ORDER BY tanggal DESC");
             <input type="text" id="search-input" placeholder="Cari artikel..." style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px;">
             <div id="results-container" class="articles-grid">
                 <?php
-                $stmt = $pdo->query("SELECT * FROM artikel");
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     echo "<div class='card'>
                         <h3 class='card__title'>" . htmlspecialchars($row['judul']) . "</h3>

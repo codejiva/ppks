@@ -469,6 +469,13 @@ body {
   gap: 10px;
   background-color: var(--red);
 }
+
+.file-identitas {
+  display: flex;
+  height: 200px;
+  width: 300px;
+  margin: 10px;
+}
 /* MAIN */
 /* CONTENT */
 
