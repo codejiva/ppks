@@ -72,6 +72,6 @@ $role_name = $_SESSION['role_name'];
             ?>
         </main>
     </section>
-    <script src="<?php echo $base_url; ?>/script/script.js"></script>
+    <script src="<?php echo $base_url; ?>/script.js"></script>
 </body>
 </html>

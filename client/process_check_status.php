@@ -3,9 +3,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/ppks/client/config.php';
 
 // Konfigurasi database
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ppks";
+$username = "rfaridhm_admin";
+$password = "D7cj5X.PF[QH";
+$dbname = "rfaridhm_ppks";
 
 // Membuat koneksi
 $conn = mysqli_connect($servername, $username, $password, $dbname);
