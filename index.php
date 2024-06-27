@@ -1,2 +1,2 @@
 <?php
-header("Location: /client/index.php");
+header("Location: /ppks/client/index.php");
