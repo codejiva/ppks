@@ -18,7 +18,6 @@ $jenis_identitas = $_POST['jenis_identitas'];
 $no_hp = $_POST['no_hp'];
 $nomor_identitas = $_POST['nomor_identitas'];
 $email = $_POST['email'];
-$prodi = $_POST['prodi'];
 $status_pelapor = $_POST['status_pelapor'];
 $kategori = $_POST['kategori'];
 $nama_terlapor = $_POST['nama_terlapor'];
@@ -59,11 +58,11 @@ if (move_uploaded_file($_FILES['file_bukti']['tmp_name'], $target_file_bukti)) {
 
 // Menyimpan data ke database
 $sql = "INSERT INTO reports (
-    nama_lengkap, alamat, jenis_identitas, no_hp, nomor_identitas, email, prodi, file_identitas,
+    nama_lengkap, alamat, jenis_identitas, no_hp, nomor_identitas, email,  file_identitas,
     status_pelapor, kategori, nama_terlapor, status_terlapor, no_hp_terlapor, email_terlapor,
     tanggal_peristiwa, lokasi_peristiwa, kronologi_peristiwa, file_bukti
 ) VALUES (
-    '$nama_lengkap', '$alamat', '$jenis_identitas', '$no_hp', '$nomor_identitas', '$email', '$prodi', '$target_file_identitas',
+    '$nama_lengkap', '$alamat', '$jenis_identitas', '$no_hp', '$nomor_identitas', '$email', '$target_file_identitas',
     '$status_pelapor', '$kategori', '$nama_terlapor', '$status_terlapor', '$no_hp_terlapor', '$email_terlapor',
     '$tanggal_peristiwa', '$lokasi_peristiwa', '$kronologi_peristiwa', '$target_file_bukti'
 )";

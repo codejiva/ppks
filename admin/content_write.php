@@ -31,22 +31,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Write Content</title>
-    <link rel="stylesheet" href="dashboard.css">
+    <title>Tulis Artikel</title>
+    <link rel="stylesheet" href="../admin/styles/content_php.css">
+    <link rel="icon" href="../assets/img/Lambang_Politeknik_Statistika_STIS.png" type="image/png">
 </head>
 
 <body>
-    <form action="content_write.php" method="POST">
-        <div>
-            <label for="judul">Judul</label>
-            <input type="text" id="judul" name="judul" required>
-        </div>
-        <div>
-            <label for="artikel">Artikel</label>
-            <textarea id="artikel" name="artikel" rows="10" required></textarea>
-        </div>
-        <button type="submit">Post Artikel</button>
-    </form>
+  <form action="content_write.php" method="POST" class="form-container">
+    <div class="judul">
+      <label for="judul">Judul</label>
+      <input type="text" id="judul" name="judul" required class="judul-input">
+    </div>
+    <div class="isi">
+      <label for="artikel">Artikel</label>
+      <textarea id="artikel" name="artikel" required></textarea>
+    </div>
+    <button type="submit">Post Artikel</button>
+  </form>
 </body>
 
 </html>
