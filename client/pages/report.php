@@ -119,7 +119,7 @@
                 <div>
                     <div id="captcha">
                         <!-- <div class="g-recaptcha" data-sitekey="6LfMvwIqAAAAALdOqH7MahGSlggxzDMWa1xL0sQj"></div> -->
-                        <div class="g-recaptcha" data-sitekey="6LdC6wIqAAAAANJVcjXx4-akA0WsTMBZP0IQORgp"></div>
+                        <div class="g-recaptcha" data-sitekey="6LfY6wIqAAAAAEule3cLK1s-QGSUvpTyWyKq0uzl"></div>
                     </div>
                 </div>
             </fieldset>
