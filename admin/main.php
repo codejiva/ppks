@@ -5,11 +5,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/ppks/client/config.php';
 // mastiin tiap role login baru bisa akses
 if (!isset($_SESSION['user_id'])) {
     header('Location: /ppks/client/login.php');
-    // exit();
+    exit();
 }
 
 // ini nyesuaiin rolenya
 $role_name = $_SESSION['role_name'];
+
+$page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,8 +44,6 @@ $role_name = $_SESSION['role_name'];
         <!-- MAIN -->
         <main>
             <?php
-            $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
-
             switch ($page) {
                 case 'dashboard':
                     if ($role_name == 'admin') {
@@ -67,7 +67,7 @@ $role_name = $_SESSION['role_name'];
                     }
                     break;
                 default:
-                    echo 'Gak ada njir';
+                    header('Location: /ppks/admin/main.php?page=dashboard');
             }
             ?>
         </main>
