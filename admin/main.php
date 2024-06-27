@@ -4,8 +4,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/ppks/client/config.php';
 
 // mastiin tiap role login baru bisa akses
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-    exit();
+    header('Location: /ppks/client/login.php');
+    // exit();
 }
 
 // ini nyesuaiin rolenya
