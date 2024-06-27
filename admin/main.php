@@ -23,7 +23,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
     <!-- <link rel="stylesheet" href="/styles/content_php.css"> -->
     <link rel="stylesheet" href="modal.css">
     <link rel="icon" href="../assets/img/Lambang_Politeknik_Statistika_STIS.png" type="image/png">
-    <title>Admin | <?php $page ?></title>
+    <title>Admin | <?php echo $page ?></title>
 </head>
 <style>
     body {
